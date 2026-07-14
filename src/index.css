@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base: #FCF9ED;
+  --line-color: #555555;
+  --primary: #A5E4E0;
+  --primary-dark: #8ED6D2;
+  --secondary: #B6E9D9;
+  --secondary-dark: #9ADBCF;
+  --text-main: #444444;
+  --text-light: #808080;
+  --text-orange: #E8B896;
+  --btn-text: #FFFFFF;
+  --card-bg: #FFFFFF;
+}
+
+body {
+  background-color: var(--bg-base);
+  background-image: 
+    linear-gradient(90deg, rgba(165, 228, 224, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(165, 228, 224, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 rounded-2xl font-medium text-white transition-all duration-300;
+    background-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(165, 228, 224, 0.4);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(165, 228, 224, 0.5);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 rounded-2xl font-medium transition-all duration-300;
+    background-color: var(--secondary);
+    color: var(--text-main);
+    box-shadow: 0 4px 12px rgba(182, 233, 217, 0.3);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--secondary-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-2xl font-medium transition-all duration-300;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background-color: transparent;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  .card {
+    @apply rounded-3xl p-6 bg-white shadow-lg;
+    border: 2px solid var(--secondary);
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-2xl border-2 outline-none transition-all duration-300;
+    border-color: var(--secondary);
+    background-color: var(--bg-base);
+    color: var(--text-main);
+  }
+
+  .input-field:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(165, 228, 224, 0.2);
+  }
+
+  .text-main {
+    color: var(--text-main);
+  }
+
+  .text-light {
+    color: var(--text-light);
+  }
+
+  .text-orange {
+    color: var(--text-orange);
+  }
+
+  .tag {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  .tag-primary {
+    @apply bg-[var(--secondary)] text-[var(--text-main)];
+  }
+
+  .tag-success {
+    @apply bg-[#B6E9D9] text-[#2E7D32];
+  }
+
+  .tag-warning {
+    @apply bg-[#FFE0B2] text-[#E65100];
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* 手绘风格边框 */
+.hand-drawn-border {
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: 3px solid var(--line-color);
+}
+
+/* 猫咪IP装饰 */
+.cat-decoration {
+  font-size: 2rem;
+}
+
+/* 拼豆颗粒装饰 */
+.bead-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  .bead-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .bead-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1201px) {
+  .bead-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
