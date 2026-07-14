@@ -1,0 +1,8 @@
+{
+  "name": "xiaokan-beads",
+  "build": {
+    "command": "npm run build",
+    "outputDir": "dist"
+  },
+  "framework": "vite"
+}
